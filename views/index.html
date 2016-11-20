@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<ul id="secrets-list">
+    {% for secret in secrets %}
+    <li>
+        <a href="/secrets/{{ secret.id }}">
+            <h5>{{ secret.createdAt }}</h5>
+            <h2>{{ secret.text }}</h2>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% if secret.id > 1 %}
+<a class="prev-page" href="/secrets/{{ secret.id - 1 }}"><span>Previous Page</span></a>
+{% endif %}
+<a class="next-page" href="/secrets/{{ secret.id + 1 }}"><span>Next Page</span></a>
+{% endblock %}
